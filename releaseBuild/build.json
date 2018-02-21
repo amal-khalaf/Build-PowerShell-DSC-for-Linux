@@ -1,0 +1,30 @@
+{    
+    "Linux": [
+    {
+        "Name": "ubuntu.16.04",
+        "RepoDestinationPath": "/bld-dsc",
+        "BuildCommand": "",
+        "BuildDockerOptions": [
+            "--cap-add",
+            "SYS_ADMIN",
+            "--cap-add",
+            "MKNOD",
+            "--device=/dev/fuse",
+            "--security-opt",
+            "apparmor:unconfined"
+        ],
+        "DockerFile": "./releaseBuild/Images/microsoft_dsc_ubuntu16.04/Dockerfile",
+        "DockerImageName": "ubunutu-16-04",
+        "BinaryBucket": "release"
+    },
+    {
+       "Name": "centos.5",
+       "RepoDestinationPath": "/bld-dsc",
+       "BuildCommand": "",
+       "AdditionalContextFiles" :[ "./releaseBuild/Images/microsoft_dsc_centos5/BuildDSC.sh"],
+       "DockerFile": "./releaseBuild/Images/microsoft_dsc_centos5/Dockerfile",
+       "DockerImageName": "dsc-centos-5",
+       "BinaryBucket": "release"
+    }
+  ]
+}

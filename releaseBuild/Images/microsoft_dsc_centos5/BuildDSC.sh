@@ -1,5 +1,6 @@
 ﻿#Build DSC
-cd /dsc/releaseBuild/bld-dsc/dsc/build 
+cd /bld-dsc/dsc/build 
+chmod +x configure
 ./configure --enable-ulinux
 make
 	

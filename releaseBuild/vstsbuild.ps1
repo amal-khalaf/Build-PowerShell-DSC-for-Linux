@@ -69,39 +69,7 @@ End {
         $buildPackageName = Split-Path -Path $BuildPackagePath -Leaf
         $additionalFiles += $BuildPackagePath
     }
-
-
-    $psReleaseBranch = 'master'
-    $psReleaseFork = 'PowerShell'
-    $location = Join-Path -Path $PSScriptRoot -ChildPath 'PSRelease'
-    $dscbldlocation = Join-Path -Path $PSScriptRoot -ChildPath 'bld-dsc'
-    if(Test-Path $dscbldlocation)
-    {
-        Remove-Item -Path $dscbldlocation -Recurse -Force
-    }
-
-    $gitBinFullPath = (Get-Command -Name git).Source
-    if (-not $gitBinFullPath)
-    {
-        throw "Git is required to proceed. Install from 'https://git-scm.com/download/win'"
-    }
-
-   # Write-Verbose "cloning -b $psReleaseBranch --quiet https://github.com/$psReleaseFork/PSRelease.git" -verbose
-   # & $gitBinFullPath clone -b $psReleaseBranch --quiet https://github.com/$psReleaseFork/PSRelease.git $location
-
-   # Write-Verbose "cloning -b $psReleaseBranch --quiet https://github.com/Microsoft/Build-PowerShell-DSC-for-Linux.git" -verbose
-   # & $gitBinFullPath clone --quiet https://github.com/Microsoft/Build-PowerShell-DSC-for-Linux.git $dscbldlocation
-
-    Push-Location -Path $PWD.Path
-    try{
-        Set-Location $dscbldlocation
-        # & $gitBinFullPath  submodule update --init --recursive --quiet
-    }
-    finally
-    {
-        Pop-Location
-    }
-
+    
     $unresolvedRepoRoot = Join-Path -Path $PSScriptRoot '..'
     $resolvedRepoRoot = (Resolve-Path -Path $unresolvedRepoRoot).ProviderPath
 

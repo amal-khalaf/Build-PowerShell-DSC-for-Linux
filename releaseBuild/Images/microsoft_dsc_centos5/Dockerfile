@@ -54,11 +54,7 @@ RUN cd /home/scratch && \
     # skip tests: one of them verifies that the current user is not root and that would fail when building the container image
     #make test && \
     make install_sw
-RUN  cd /bld-dsc/dsc/build && \
-    chmod +x configure && \
-    ./configure --enable-debug --enable-ulinux && \
-    make && \
-    cd ~
+
 	
 
 	  

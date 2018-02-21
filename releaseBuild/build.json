@@ -20,7 +20,7 @@
     {
        "Name": "centos.5",
        "RepoDestinationPath": "/bld-dsc",
-       "BuildCommand": "",
+       "BuildCommand": "/home/scratch/BuildDSC.sh",
        "AdditionalContextFiles" :[ "./releaseBuild/Images/microsoft_dsc_centos5/BuildDSC.sh"],
        "DockerFile": "./releaseBuild/Images/microsoft_dsc_centos5/Dockerfile",
        "DockerImageName": "dsc-centos-5",
